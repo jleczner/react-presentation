@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import AircraftTable from "./components/AircraftTable";
+import AircraftPreview from "./components/AircraftPreview";
 
 class App extends Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {};
+		this.state = {
+			selectedRow: null
+		};
 	}
 
-	getRowData() {
+	getRowData = () => {
 		return [
 			{
 				tailNumber: '0800010',
@@ -48,17 +51,19 @@ class App extends Component {
 				secret: 'lots of ups and downs'
 			},
 		];
-	}
+	};
+
+	setSelectedRow = (selectedRow) => {
+		this.setState({selectedRow});
+	};
 
 	render() {
 		const rowData = this.getRowData();
 
 		return (
 			<div className='app-container'>
-				<AircraftTable rowData={rowData} />
-				<div className='panel preview-panel'>
-					<div style={{margin: 'auto'}}>Select an aircraft</div>
-				</div>
+				<AircraftTable rowData={rowData} setSelectedRow={this.setSelectedRow} />
+				<AircraftPreview selectedRow={this.state.selectedRow} />
 			</div>
 		);
 	}
