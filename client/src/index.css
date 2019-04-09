@@ -1,5 +1,6 @@
 @import "~ag-grid-community/dist/styles/ag-grid.css";
 @import "~ag-grid-community/dist/styles/ag-theme-balham.css";
+@import "~bootstrap/dist/css/bootstrap.min.css";
 
 body {
   margin: 0;
@@ -16,7 +17,7 @@ body {
 }
 
 .panel {
-    height: 60%;
+    height: 85%;
     width: 45%;
     margin: auto;
 }
@@ -25,4 +26,12 @@ body {
     border: 1px solid #BDC3C7;
     display: flex;
     justify-content: center;
+}
+
+.preview-flex-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 80%;
+    padding: 15px;
 }

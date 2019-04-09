@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+
 import {AgGridReact} from 'ag-grid-react';
 
 export default class AircraftTable extends Component {
@@ -25,17 +26,17 @@ export default class AircraftTable extends Component {
 			{
 				headerName: 'Likes',
 				field: 'likes',
-				hide: true
+				// hide: true
 			},
 			{
 				headerName: 'Dislikes',
 				field: 'dislikes',
-				hide: true
+				// hide: true
 			},
 			{
 				headerName: 'Secret',
 				field: 'secret',
-				hide: true
+				// hide: true
 			}
 		];
 	};

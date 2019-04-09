@@ -1,57 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import {Button} from 'reactstrap';
+
+import BulletList from './BulletList.js';
+
 const AircraftPreview = ({selectedRow}) => {
-
-	const getDetailList = (list) => {
-		return list.map(item => {
-			return (
-				<div>{item}</div>
-			)
-		});
-	};
-
-	let likes, dislikes;
-
-	if (selectedRow) {
-		likes = getDetailList(selectedRow.likes);
-		dislikes = getDetailList(selectedRow.dislikes);
-	}
-
 	return (
 		<div className='panel preview-panel'>
 			{
 				selectedRow ? (
-					<div style={{
-						display: 'flex',
-						flexDirection: 'column',
-						justifyContent: 'space-between',
-						width: '80%',
-						padding: 5
-					}}>
-						<div style={{color: '#ff363d', textAlign: 'center'}}>
-							<strong>
-								{selectedRow.platform} - {selectedRow.tailNumber}
-							</strong>
-						</div>
-						<div>
-							<div><strong>LIKES</strong></div>
-							<div style={{padding: 10}}>
-								{likes}
+					<div className='preview-flex-wrapper'>
+						<div style={{display: 'flex', justifyContent: 'space-between'}}>
+							<div>
+								<img
+									src={require(`../assets/${selectedRow.image}`)}
+									alt='user-pic'
+									width={200}
+									height={125}
+								/>
+								<div style={{color: '#ff363d'}}>
+									<strong>
+										{selectedRow.platform} - {selectedRow.tailNumber}
+									</strong>
+								</div>
+							</div>
+							<div>
+								<Button>Send Message</Button>
 							</div>
 						</div>
-						<div>
-							<div><strong>DISLIKES</strong></div>
-							<div style={{padding: 10}}>
-								{dislikes}
-							</div>
-						</div>
-						<div>
-							<div><strong>SECRET</strong></div>
-							<div style={{padding: 10}}>
-								{selectedRow.secret}
-							</div>
-						</div>
+						<BulletList title='LIKES' list={selectedRow.likes} />
+						<BulletList title='DISLIKES' list={selectedRow.dislikes} />
+						<BulletList title='SECRET' list={selectedRow.secret} />
 					</div>
 				) : (
 					<div style={{margin: 'auto'}}>
