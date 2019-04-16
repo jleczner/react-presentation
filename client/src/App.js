@@ -20,7 +20,7 @@ class App extends Component {
 				pxcy_n: '--',
 				pxcy_number: '',
 				likes: ['dirty talk', 'actuator maintenance', 'sweet and sour chicken'],
-				dislikes: ['libtards', 'mall Santas'],
+				dislikes: ['vegetables', 'mall Santas'],
 				secret: ['afraid of heights'],
 				image: 'V-22-Osprey.jpg'
 			},
@@ -40,7 +40,7 @@ class App extends Component {
 				pxcy_n: '0',
 				pxcy_number: '',
 				likes: ['neutralizing targets', 'aviator sunglasses', 'drinking and flying'],
-				dislikes: ['brown fellas', 'libtards'],
+				dislikes: ['taxes', 'libtards'],
 				secret: ['avid Alex Jones/Info Wars fan'],
 				image: 'f18.jpg'
 			},
