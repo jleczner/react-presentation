@@ -1,17 +1,9 @@
 import React, { Component } from 'react';
 
-import AircraftTable from './components/AircraftTable';
-import AircraftPreview from './components/AircraftPreview';
+import AircraftTable from './components/HomePage/AircraftTable';
+import AircraftPreview from './components/HomePage/AircraftPreview';
 
 class App extends Component {
-	constructor(props) {
-		super(props);
-
-		this.state = {
-			selectedRow: null
-		};
-	}
-
 	getRowData = () => {
 		return [
 			{
@@ -57,17 +49,13 @@ class App extends Component {
 		];
 	};
 
-	setSelectedRow = (selectedRow) => {
-		this.setState({selectedRow});
-	};
-
 	render() {
 		const rowData = this.getRowData();
 
 		return (
 			<div className='app-container'>
-				<AircraftTable rowData={rowData} setSelectedRow={this.setSelectedRow} />
-				<AircraftPreview selectedRow={this.state.selectedRow} />
+				<AircraftTable rowData={rowData} />
+				<AircraftPreview />
 			</div>
 		);
 	}

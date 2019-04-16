@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
 import {AgGridReact} from 'ag-grid-react';
 
-export default class AircraftTable extends Component {
+import setSelectedRow from './actions';
+
+class AircraftTable extends Component {
 	getColumnDefs = () => {
 		return [
 			{
@@ -50,9 +53,9 @@ export default class AircraftTable extends Component {
 		const selectedRows = this.gridApi.getSelectedRows();
 		if (selectedRows.length > 0) {
 			const selectedRow = selectedRows[0];
-			this.props.setSelectedRow(selectedRow);
+			this.props.dispatch(setSelectedRow(selectedRow));
 		} else {
-			this.props.setSelectedRow(null);
+			this.props.dispatch(setSelectedRow(null));
 		}
 	};
 
@@ -73,6 +76,8 @@ export default class AircraftTable extends Component {
 }
 
 AircraftTable.propTypes = {
+	dispatch: PropTypes.func,
 	rowData: PropTypes.array.isRequired,
-	setSelectedRow: PropTypes.func
 };
+
+export default connect()(AircraftTable);

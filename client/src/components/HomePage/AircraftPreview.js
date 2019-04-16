@@ -1,9 +1,10 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 
 import {Button} from 'reactstrap';
 
-import BulletList from './BulletList.js';
+import BulletList from '../common/BulletList.js';
 
 const AircraftPreview = ({selectedRow}) => {
 	return (
@@ -14,7 +15,7 @@ const AircraftPreview = ({selectedRow}) => {
 						<div style={{display: 'flex', justifyContent: 'space-between'}}>
 							<div>
 								<img
-									src={require(`../assets/${selectedRow.image}`)}
+									src={require(`../../assets/${selectedRow.image}`)}
 									alt='user-pic'
 									width={200}
 									height={125}
@@ -47,4 +48,10 @@ AircraftPreview.propTypes = {
 	selectedRow: PropTypes.object
 };
 
-export default AircraftPreview;
+const mapStateToProps = (state) => {
+	return {
+		selectedRow: state.homePageReducer.selectedRow
+	};
+};
+
+export default connect(mapStateToProps)(AircraftPreview);
